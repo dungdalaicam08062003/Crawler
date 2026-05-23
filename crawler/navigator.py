@@ -1,13 +1,15 @@
 KEYWORDS = {
+
     "tuition": [
         "học phí",
-        "tuition"
+        "tuition",
+        "chi phí"
     ],
 
     "admission": [
         "tuyển sinh",
-        "admission",
-        "xét tuyển"
+        "xét tuyển",
+        "admission"
     ]
 }
 
@@ -28,6 +30,8 @@ async def find_related_links(page, category):
 
             if not text or not href:
                 continue
+
+            text = text.strip()
 
             for keyword in KEYWORDS[category]:
 

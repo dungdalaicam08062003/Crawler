@@ -5,7 +5,10 @@ async def extract_content(page):
     content = await page.locator("body").inner_text()
 
     return {
+
         "title": title,
-        "content": content[:1500],
+
+        "content": content[:2000],
+
         "url": page.url
     }
