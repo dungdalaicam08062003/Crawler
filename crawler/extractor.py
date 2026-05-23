@@ -4,11 +4,15 @@ async def extract_content(page):
 
     content = await page.locator("body").inner_text()
 
+    html = await page.locator("body").inner_html()
+
     return {
 
         "title": title,
 
-        "content": content[:2000],
+        "content": content,
+
+        "html": html,
 
         "url": page.url
     }

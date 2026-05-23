@@ -1,7 +1,3 @@
-VKU_URL = (
-    "https://tuyensinhso.vn/school/"
-    "dai-hoc-cong-nghe-thong-tin-va-"
-    "truyen-thong-viet-han-dai-hoc-da-nang.html"
-)
+VKU_URL = "https://daotao.vku.udn.vn/thong-bao-tai-vu/ve-viec-thu-hoc-phi-hoc-ky-1-nam-hoc-2025-2026-1288.html"
 
 HEADLESS = True

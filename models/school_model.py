@@ -5,6 +5,7 @@ class SchoolData:
         title,
         url,
         content,
+        html,
         tuition_links,
         admission_links
     ):
@@ -14,6 +15,8 @@ class SchoolData:
         self.url = url
 
         self.content = content
+
+        self.html = html
 
         self.tuition_links = tuition_links
 
@@ -28,6 +31,8 @@ class SchoolData:
             "url": self.url,
 
             "content": self.content,
+
+            "html": self.html,
 
             "tuition_links": self.tuition_links,
 
