@@ -54,9 +54,12 @@ async def run_school_pipeline():
 
         tuition_links=tuition_links,
 
-        admission_links=admission_links
-    )
+        admission_links=admission_links,
 
+        tables=extracted["tables"],
+
+        links=extracted["links"]
+    )
     result = school_data.to_dict()
 
     print(result)
