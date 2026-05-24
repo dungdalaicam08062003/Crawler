@@ -1,44 +1,22 @@
-from playwright.async_api import async_playwright
-from normalize import normalize_article
-
+import json
 import asyncio
+from config import SCHOOL_URLS
 
+async def crawl_school(url, short_name):
+    # Đây chỉ là ví dụ giả lập, thay bằng logic crawler thật của bạn
+    data = {
+        "school": short_name,
+        "url": url,
+        "info": f"Dữ liệu giả lập cho {short_name}"
+    }
 
-URL = "https://tuyensinh.vku.udn.vn/thong-bao/69af03ade1fedb5e0308e873"
+    filename = f"output/{short_name}_normalized.json"
+    with open(filename, "w", encoding="utf-8") as f:
+        json.dump(data, f, ensure_ascii=False, indent=2)
 
+    print(f"✅ Đã lưu {filename}")
 
-async def main():
-
-    async with async_playwright() as p:
-
-        browser = await p.chromium.launch(
-            headless=True,
-            args=[
-                "--no-sandbox",
-                "--disable-dev-shm-usage"
-            ]
-        )
-
-        page = await browser.new_page()
-
-        await page.goto(URL)
-
-        await page.wait_for_timeout(3000)
-
-        raw_data = {
-
-            "title": await page.locator("h1").inner_text(),
-
-            "content": await page.locator("body").inner_text(),
-
-            "url": page.url
-        }
-
-        normalized = normalize_article(raw_data)
-
-        print(normalized)
-
-        await browser.close()
-
-
-asyncio.run(main())
+async def run_school_pipeline():
+    tasks = [crawl_school(url, short_name) for url, short_name in SCHOOL_URLS]
+    await asyncio.gather(*tasks)
+asyncio.run(run_school_pipeline())
