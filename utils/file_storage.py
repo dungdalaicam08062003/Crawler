@@ -3,13 +3,9 @@ import os
 from datetime import datetime
 
 
-def save_json(data, folder="output", filename=None):
+def save_json(data, folder="output", filename="file_data.json"):
 
-    os.makedirs(folder, exist_ok=True)
 
-    if filename is None:
-
-        filename = f"school_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
 
     path = os.path.join(folder, filename)
 

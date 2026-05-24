@@ -4,10 +4,10 @@ from crawler.extractor import extract_content
 from models.school_model import SchoolData
 from utils.logger import log_step
 from utils.file_storage import save_json
-from config import VKU_URL
+from config import VKU_URL, UDN_URL, UED_URL, DUT_URL, DUE_URL, UFL_URL, UTE_URL, SMP_URL
 
 
-async def run_school_pipeline():
+async def run_school_pipeline(school_urls):
 
     browser_engine = BrowserEngine()
 
@@ -18,7 +18,7 @@ async def run_school_pipeline():
     # STEP 1
     log_step("STEP 1: OPEN SCHOOL PAGE")
 
-    await page.goto(VKU_URL)
+    await page.goto(school_urls)
 
     await page.wait_for_load_state("networkidle")
 
