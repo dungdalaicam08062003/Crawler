@@ -1,0 +1,14 @@
+requests
+aiohttp
+beautifulsoup4
+lxml
+pandas
+apscheduler
+google-generativeai
+playwright
+selenium
+webdriver-manager
+apscheduler
+fastapi
+uvicorn
+python-dotenv
